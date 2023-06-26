@@ -50,9 +50,9 @@ resource "aws_ebs_volume" "ssdgp1" {
 resource "aws_volume_attachment" "ssdgp1" {
 
   count             = length(data.aws_availability_zones.available_zones.names)
-  availability_zone = data.aws_availability_zones.available_zones.names[count.index]
+#  availability_zone = data.aws_availability_zones.available_zones.names[count.index]
   device_name           = var.instance_device_name1
-  volume_id             = aws_ebs_volume.ssdgp1.id
+  volume_id             = aws_ebs_volume.ssdgp1[count.index].id
   instance_id           = aws_instance.instance[count.index].id
 
 #  device_name = "/dev/xvdf"
