@@ -10,3 +10,5 @@ override.tf.json
 .terraformrc
 terraform.rc
 *.pem
+export_credentials.sh
+01-ssh-public-key-config.tpl
